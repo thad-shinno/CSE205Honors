@@ -20,7 +20,7 @@ public class PortScan {
 		if (options.Contains("-c")) {	
 			for (int i = 0; i < commonPorts.length; i++) {
 				// Scan has try catch Exception
-				String out = TCP.Scan(ip, commonPorts[i].getNum, commonPorts[i].getName)
+				String out = TCP.Scan(ip, commonPorts[i].getNum(), commonPorts[i].getName());
 				// if connection was successful, then print out the port info
 				if (out.length() > 0)
 					System.out.println(out);

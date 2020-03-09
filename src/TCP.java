@@ -10,7 +10,7 @@ public class TCP {
 	public static String Scan(String ip, int num) {
 		try {
 			// return a string of the open port number
-			Socket s = new Socket(ip, port);
+			Socket s = new Socket(ip, num);
 			return String.format("Port Open: %d", num);
 		}
 		catch (Exception e) {
