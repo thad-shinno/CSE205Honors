@@ -5,7 +5,7 @@ public class OptionArray {
 	private String help = "Usage: java PortScan [options] [ip]\n"
 						+ "OPTIONS:\n"
 						+ "\t -o [basename]: Output to [basename].txt\n"
-						+ "\t -c: only scan the 20 most common ports"
+						+ "\t -c: only scan the 20 most common ports\n"
 						+ "\t -h: Print this help summary page\n"
 						+ "EXAMPLE:\n"
 						+ "java PortScan -c -o openports 168.92.0.1\n"

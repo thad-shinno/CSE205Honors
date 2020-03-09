@@ -6,14 +6,27 @@ import java.util.Scanner;
 import java.io.*;
 
 public class TCP {
-	// scan an ip's port num
-	public static void Scan(String ip, int num) {
+	// scan a port num on an ip
+	public static String Scan(String ip, int num) {
 		try {
-			Socket s = new Socket(ip, num);
-			System.out.print("Port Open: " + num);
+			// return a string of the open port number
+			Socket s = new Socket(ip, port);
+			return String.format("Port Open: %d", num);
 		}
 		catch (Exception e) {
+			// return an empty string if connection failed
+			return "";
 		}
+	}
+	
+	// scan an ip's port num and print the name if given
+	public static String Scan(String ip, int num, String name) {
+		String out = TCP.Scan(ip, num);
+		if (out.length() > 0) {
+			out += String.format(" (%s)", name);
+		}
+		// returns an empty string if connection failed
+		return out;
 	}
 	
 	// returns an array of the 20 most common ports
