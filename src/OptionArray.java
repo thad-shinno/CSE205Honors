@@ -21,6 +21,16 @@ public class OptionArray {
 		this.args = args;
 	}
 	
+	// returns a string of all options
+	public String getArgs() {
+		String options = "";
+		for (int i = 0; i < this.args.length; i++) {
+			options += this.args[i];
+		}
+		options += "\n";
+		return options;
+	}
+	
 	// displays help message if necessary
 	public boolean checkOptions() {
 		// check if there are any options at all
@@ -35,7 +45,7 @@ public class OptionArray {
 			return false;
 		}
 		
-		// has options and doesn't need help
+		// user doesn't need help
 		return true;
 	}
 	
@@ -49,7 +59,7 @@ public class OptionArray {
 		return this.args[index + 1];
 	}	
 	
-		// gets index of val
+	// gets index of val
 	public int indexOf(String val) {
 		for (int i = 0; i < this.args.length; i++) {
 			if (this.args[i].equals(val))

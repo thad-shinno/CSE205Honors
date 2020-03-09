@@ -9,15 +9,23 @@ public class PortScan {
 			return;
 		}
 		
+		// ip is the last argument
 		String ip = args[args.length - 1];
+		
+		// create output text file String
+		String out = "java PortScan" + options.getArgs();
 		
 		// scan most common ports
 		if (options.Contains("-c")) {	
-			TCP.scanCommon(ip);
+			out += TCP.scanCommon(ip);
 		}
 		// scan all ports
 		else {
-			TCP.scanAll(ip);
+			out += TCP.scanAll(ip);
+		}
+		
+		if (options.Contains("-o")) {
+			TCP.Save(out, options.valueAfter("-o"));
 		}
 	}
 }
