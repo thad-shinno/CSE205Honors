@@ -6,6 +6,34 @@ import java.util.Scanner;
 import java.io.*;
 
 public class TCP {
+	/** 		
+	 * Scan ALL 65535 ports
+	 */
+	public static void scanAll(String ip) {
+		// loop and scan each port
+		for (int i = 1; i <= 65535; i++) {
+			String out = Scan(ip, i);
+			// if the port is open, print the port info
+			if (out.length() > 0)
+				System.out.println(out);
+		}
+	}
+	
+	/**
+	 * Only scan the 20 most common ports
+	 */
+	 public static void scanCommon(String ip) {
+		 // initialize array of the 20 most common ports
+		 Port[] commonPorts = getCommonPorts();
+		 // loop and scan each port in commonPorts array
+		 for (int i = 0; i < commonPorts.length; i++) {
+			String out = TCP.Scan(ip, commonPorts[i].getNum(), commonPorts[i].getName());
+			// if connection was successful, then print out the port info
+			if (out.length() > 0)
+				System.out.println(out);
+		}
+	 }
+	
 	// scan a port num on an ip
 	public static String Scan(String ip, int num) {
 		try {

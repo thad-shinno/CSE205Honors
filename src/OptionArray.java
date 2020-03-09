@@ -21,27 +21,6 @@ public class OptionArray {
 		this.args = args;
 	}
 	
-	// gets index of val
-	public int indexOf(String val) {
-		for (int i = 0; i < this.args.length; i++) {
-			if (this.args[i].equals(val))
-				return i;
-		}
-		
-		// if argv does not contain val, then return -1
-		return -1;
-	}
-	
-	public boolean Contains(String val) {
-		return indexOf(val) >= 0;
-	}
-	
-	// gets the string after val
-	public String valueAfter(String val) {
-		int index = indexOf(val);
-		return this.args[index + 1];
-	}
-	
 	// displays help message if necessary
 	public boolean checkOptions() {
 		// check if there are any options at all
@@ -58,6 +37,27 @@ public class OptionArray {
 		
 		// has options and doesn't need help
 		return true;
+	}
+	
+	public boolean Contains(String val) {
+		return indexOf(val) >= 0;
+	}
+	
+	// gets the string after val
+	public String valueAfter(String val) {
+		int index = indexOf(val);
+		return this.args[index + 1];
+	}	
+	
+		// gets index of val
+	public int indexOf(String val) {
+		for (int i = 0; i < this.args.length; i++) {
+			if (this.args[i].equals(val))
+				return i;
+		}
+		
+		// if argv does not contain val, then return -1
+		return -1;
 	}
 }
 
