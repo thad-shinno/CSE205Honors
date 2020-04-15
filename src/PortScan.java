@@ -20,7 +20,7 @@ public class PortScan {
 		// ip is the last argument
 		String ip = args[args.length - 1];
 		
-		// create output text file String
+		// create output text file content
 		String out = "java PortScan" + options.getArgs();
 		
 		// scan most common ports

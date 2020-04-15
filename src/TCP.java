@@ -20,10 +20,13 @@ public class TCP {
 		for (int i = 1; i <= 65535; i++) {
 			scanned = scan(ip, i);
 			// if the port is open, print the port info
+			out += check(scanned);
+			/*
 			if (scanned.length() > 0) {
 				System.out.println(scanned);
 				out += scanned + "\n";
 			}
+			*/
 		}
 		return out;
 	}
@@ -31,7 +34,7 @@ public class TCP {
 	/**
 	 * Only scan the 20 most common ports
 	 */
-	 public static String scanCommon(String ip) {
+	public static String scanCommon(String ip) {
 		String out = "";
 		String scanned;
 		Port[] commonPorts = getCommonPorts();
@@ -39,15 +42,25 @@ public class TCP {
 		for (int i = 0; i < commonPorts.length; i++) {
 			scanned = scan(ip, commonPorts[i].num, commonPorts[i].name);
 			// if connection was successful, then print out the port info
+			out += check(scanned);
+			/*
 			if (scanned.length() > 0) {
 				System.out.println(scanned);
 				out += scanned + "\n";
 			}
+			*/
 			
 		}
 		return out;
 	 }
 	
+	private static String check(String scanned) {
+		if (scanned.length() > 0) {
+			System.out.println(scanned);
+			return scanned + "\n";
+		}
+		return "";
+	}
 	
 	/**
 	 * Scan a port num on an ip address
