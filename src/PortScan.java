@@ -2,13 +2,12 @@
  * CSE 205: 11333 / T TH 4:30pm
  * Honors Project
  * Author: Thaddeus Shinno & 1216639502
- * Descripion: Main method for the Port Scanner
+ * Descripion: 
+	* Main method for the Port Scanner
+	* Call OptionArray class to manage user input and make output.
+	* Call TCP class to scan ports
  */
 
-/**
- * Call OptionArray class to manage user input and make output.
- * Call TCP class to scan ports
- */
 public class PortScan {
 	public static void main(String[] args) {
 		// check if user needs help

@@ -8,6 +8,7 @@
 import java.io.*;
 
 public class OptionArray {
+	// the user's input is called args
 	private String[] args;
 	
 	// help message
@@ -35,7 +36,7 @@ public class OptionArray {
 	}
 	
 	/**
-	 * returns a string of all options in args and inserts spaces before
+	 * returns back the user's input arguments with spaces
 	 */
 	public String getArgs() {
 		String options = "";
@@ -67,17 +68,19 @@ public class OptionArray {
 	}
 	
 	/**
-	 * Outputs string to a file
+	 * Outputs string to a file called [basename].txt
 	 */
 	public static void save(String out, String basename) {
 		// if the basename begins with a '-' or contains '.' then return with a basename prompt
+		// this is to avoid confusion with arguments and filetypes
 		if (basename.charAt(0) == '-' || basename.contains(".")) {
-			System.out.println("***Could not output text file. Basename must not begin with '-' or contain '.'");
+			System.out.println("***Could not output text file. Basename must not begin with '-' and cannot contain '.'");
 			return;
 		}
 		
 		String filename = basename + ".txt";
 		try {
+			// create the file
 			PrintWriter file = new PrintWriter(filename);
 			file.print(out);
 			file.close();
@@ -86,18 +89,26 @@ public class OptionArray {
 		}
 	}
 	
+	/**
+	 * Check if args contains a string.
+	 */
 	public boolean contains(String val) {
 		return indexOf(val) >= 0;
 	}
 	
-	// gets the string after val
+	/**
+	 * returns the string AFTER val
+	 */ 
 	public String valueAfter(String val) {
+		// Index will always exist since in the main method, it is checked if val is contained.
 		int index = indexOf(val);
 		return this.args[index + 1];
 	}	
 	
-	// gets index of val
-	public int indexOf(String val) {
+	/**
+	 * gets index of String val in an array
+	 */
+	private static int indexOf(String val) {
 		for (int i = 0; i < this.args.length; i++) {
 			if (this.args[i].equals(val))
 				return i;

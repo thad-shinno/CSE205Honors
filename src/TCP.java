@@ -21,12 +21,6 @@ public class TCP {
 			scanned = scan(ip, i);
 			// if the port is open, print the port info
 			out += check(scanned);
-			/*
-			if (scanned.length() > 0) {
-				System.out.println(scanned);
-				out += scanned + "\n";
-			}
-			*/
 		}
 		return out;
 	}
@@ -41,19 +35,15 @@ public class TCP {
 		// loop and scan each port in commonPorts array
 		for (int i = 0; i < commonPorts.length; i++) {
 			scanned = scan(ip, commonPorts[i].num, commonPorts[i].name);
-			// if connection was successful, then print out the port info
+			// if the port is open, print out the port info
 			out += check(scanned);
-			/*
-			if (scanned.length() > 0) {
-				System.out.println(scanned);
-				out += scanned + "\n";
-			}
-			*/
-			
 		}
 		return out;
 	 }
 	
+	/**
+	 * Print the scanned port if the length > 0
+	 */
 	private static String check(String scanned) {
 		if (scanned.length() > 0) {
 			System.out.println(scanned);
@@ -104,10 +94,10 @@ public class TCP {
 			Scanner in = new Scanner(common_ports);
 			
 			// create new TCP object to access local subclass port
-			TCP list = new TCP();
+			TCP tcp = new TCP();
 			// fill the array of ports with common ports
 			for (int i = 0; in.hasNext(); i++) {
-				portList[i] = list.new Port(in.nextInt(), in.next());;
+				portList[i] = tcp.new Port(in.nextInt(), in.next());;
 			}
 			in.close();
 			return portList;
@@ -117,6 +107,9 @@ public class TCP {
 		}
 	}
 	
+	/**
+	 * A port only has a name and a number.
+	 */
 	class Port {
 		private int num;
 		private String name;
