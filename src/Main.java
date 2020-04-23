@@ -8,7 +8,7 @@
 	* Call TCP class to scan ports
  */
 
-public class PortScan {
+public class Main {
 	public static void main(String[] args) {
 		// check if user needs help
 		OptionArray options = new OptionArray(args);
@@ -20,7 +20,7 @@ public class PortScan {
 		String ip = args[args.length - 1];
 		
 		// create output text file content
-		String out = "java PortScan" + options.getArgs();
+		String out = "java Main" + options.getArgs();
 		
 		// scan most common ports
 		if (options.contains("-c")) {	

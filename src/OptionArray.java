@@ -12,13 +12,13 @@ public class OptionArray {
 	private String[] args;
 	
 	// help message
-	private String help = "Usage: java PortScan [options] [ip]\n"
+	private String help = "Usage: java Main [options] [ip]\n"
 						+ "OPTIONS:\n"
 						+ "\t -o [basename]: Output to [basename].txt\n"
 						+ "\t -c: only scan the 20 most common ports\n"
 						+ "\t -h: Print this help summary page\n"
 						+ "EXAMPLE:\n"
-						+ "java PortScan -c -o openports 168.92.0.1\n"
+						+ "java Main -c -o openports 168.92.0.1\n"
 						+ "\t (this scans the 20 most common ports on the ip address 168.92.0.1 and saves to an output called openports.txt)";
 	
 	/**
@@ -108,7 +108,7 @@ public class OptionArray {
 	/**
 	 * gets index of String val in an array
 	 */
-	private static int indexOf(String val) {
+	private int indexOf(String val) {
 		for (int i = 0; i < this.args.length; i++) {
 			if (this.args[i].equals(val))
 				return i;
