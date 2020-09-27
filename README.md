@@ -1,2 +1,2 @@
 # CSE205Honors
-This program was made for educational purposes as a proof of concept for the CSE 205 honors project.  This is not intended for malicious purposes.
+A simple port scanner written in Java. Makes connenections to ports and reporst if it is open or not. There are options to scan all ports, or just common ports.
